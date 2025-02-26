@@ -5,10 +5,17 @@ This project examines the impact of financial sentiment on market microstructure
 
 sentiment-market-microstructure/
 │── data_pipeline.py        # Market & sentiment data collection
+
 │── feature_engineering.py  # Liquidity, volatility, order book features
+
 │── model.py                # FinBERT sentiment classification
+
 │── execution.py            # Trade execution and market impact modeling
+
 │── causality.py            # Granger causality & event study framework
+
 │── experiment_tracking.py  # Logging & backtesting results
+
 │── run_pipeline.py         # Full workflow execution
+
 │── README.md               # Project documentation
