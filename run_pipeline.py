@@ -36,3 +36,27 @@ def main():
     processed_data = feature_engineer.pipeline.fit_transform(
         market_data.join(sentiment_data)
     )
+
+    # Model training
+    dataset = FinancialDataset(processed_data, sentiment_data)
+    dataloader = DataLoader(dataset, batch_size=32, shuffle=True)
+    model = MultiModalFusion()
+    train_model(model, dataloader, epochs=config['training']['epochs'])
+    
+    # Backtesting
+    if args.backtest:
+        backtester = Backtester(
+            initial_capital=config['backtesting']['initial_capital'],
+            commission=config['backtesting']['commission']
+        )
+        # Add backtesting logic here
+        metrics = backtester.calculate_metrics()
+        tracker.log_run(config, metrics)
+        
+    # Live trading execution
+    if args.live:
+        order_manager = OrderManager(args.ticker)
+        # Add live trading logic here
+
+if __name__ == "__main__":
+    main()
