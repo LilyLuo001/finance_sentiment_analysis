@@ -4,6 +4,7 @@ This project examines the impact of financial sentiment on market microstructure
 
 
 sentiment-market-microstructure/
+
 │── data_pipeline.py        # Market & sentiment data collection
 
 │── feature_engineering.py  # Liquidity, volatility, order book features
